@@ -1,5 +1,15 @@
 # Django settings for mysite project.
 
+import logging
+import os
+import sys
+import warnings
+
+ROOT_PATH=os.path.dirname(os.path.abspath(__file__))
+MEDIA_ROOT=os.path.join(ROOT_PATH,'..','static')
+
+logging.warning('MEDIA_PATH:%s' % MEDIA_ROOT)
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -109,7 +119,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-   '/home/cloud/workspace/django/poll/poll_app/template',
+   os.path.join(ROOT_PATH,'..','template'),
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
