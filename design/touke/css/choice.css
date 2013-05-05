@@ -1,0 +1,70 @@
+body{
+
+	background-color: #eee;
+	margin-top:40px;
+
+}
+
+.choice-head{
+
+	padding-top:5px; 
+	width: 100%;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	height: 37px;
+	background: #3c3c3c;
+
+}
+
+.head-text{
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+
+}
+
+.head-text .head-logo{
+
+	float:left;
+	color: #fff;
+	font-weight: bolder;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+
+}
+
+
+
+.head-text .head-menu{
+	
+	float:left;
+	margin-left: 20px;
+
+}
+
+.head-text .head-option{
+	display: inline-block;
+
+}
+
+.choice-head-sub{
+
+	width:100%;
+	padding-top:20px;
+	padding-left:5%;
+	padding-right: 5%;
+	height:30px;
+	background-color: #fff;
+	border-bottom: 1px #ddd solid;
+
+}
+
+.choice-head-sub a{
+
+	font-size: 16px;
+	margin-left: 10px;
+	
+}
