@@ -7,11 +7,63 @@
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="touke/css/item.css" rel="stylesheet" media="screen">
-   
+    <link href="touke/css/_head.css" rel="stylesheet" media="screen">
   </head>
   <body>
-   
+     <div class="choice-head">
+        <div class="head-text">
+            <span class="head-logo"><a href="index.html">Choice</a></span>
+            <div class="head-menu">
+                <ul id="nav-tabs" class="nav nav-tabs">
+                    <li class=""><a href="findchoice.html" >发现</a></li>
+                    <li class=""><a href="#">参与</a></li>
+                    <li><a href="#tab2">我的Choice</a></li>
+                </ul>
+            </div>
+            <div class="head-option">
+                
+                <input type="text" class="choice-query" Placeholder="主题，类型，用户">
+                <div class="user-info">
+                    <img src="touke/img/1.jpg" class="photo"/>
+                    <span class="name">YM简</span>
+                    <i class="icon-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="title-bar">
+        <div id="publisher-info" class="hidden-small-phone">
+            <a href="#">
+            <div style="float:left;padding:5px;margin-top:-5px;border-radius:50%;box-shadow: inset 0 2px 10px rgba(0,0,0,0.28);">
+
+                <img id="publisher-profile-image" src="http://files.parse.com/f7f7880e-87cf-464e-b687-169c51d78235/cf2af808-d55a-48ad-a863-13feb691f9f3-profile-E3ezw2mOhq.jpg">
+
+            </div>
+            </a>
+            <div id="publisher-section">
+                <span id="publisher-name-link">
+                    由<a href="#">spirithands</a>发布
+                </span>
+                <br/>
+                <span id="publisher-choice-link">
+                <a href="#"><b>6</b> Choice</a>
+                </span>
+            </div>
+        </div>
+        <div id="Choice-title">你妈你老婆掉水里了你先救谁？</div>
+    </div>
+    <div id="main">
+        <div class="choice"></div>
+        <div class="comment-pane">
+
+
+
+        </div>
+    </div>
     
+
     <script src="bootstrap/js/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>

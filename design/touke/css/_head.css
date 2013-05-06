@@ -1,0 +1,94 @@
+.choice-head{
+
+	padding-top:5px; 
+	width: 100%;
+	min-width: 900px;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	height: 40px;
+	background: #3c3c3c;
+
+}
+
+.head-text{
+	width: 99%;
+	margin: 0 auto;
+	margin-left:30px;
+	position: relative;
+
+}
+
+.head-text .head-logo{
+
+	float:left;
+	display: block;
+	height: 40px;
+	line-height: 40px;
+
+}
+
+.head-text .head-logo a{
+
+	color: #fff;
+	font-weight: bolder;
+}
+
+.head-text .head-menu{
+	
+	float:left;
+	margin-left: 20px;
+	margin-top:4px;
+
+}
+
+.head-text .head-option{
+	
+	
+	float: right;
+	width: 328px;
+	margin-right: 10px;
+}
+
+.head-text .head-option .choice-query{
+	height:16px;
+	margin-top:5px;
+	width:200px;
+	border-radius: 10px;
+}
+
+.head-text .head-option .user-info{
+
+	color: #fff;
+	display: inline-block;
+	margin-left: 10px;
+	padding-right: 10px;
+
+}
+
+.head-text .head-option .user-info:hover{
+
+
+
+}
+
+.user-info .photo{
+	height:30px;
+	width:30px;
+	border-radius: 500px;
+}
+
+.user-info .photo:hover{
+
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transition-duration:0.5s;
+
+
+}
+
+.user-info .name{
+	margin-left:4px;
+}
