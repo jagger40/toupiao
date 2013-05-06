@@ -1,11 +1,7 @@
-toupiao
+Choice
 =======
 
-在线投票统计服务，纯粹的技术娱乐
+Choice服务
 
-参考案例
-    1[万言网][2]
-    2[polldaddy.com][1]
-
-[1]:http://polldaddy.com/
-[2]:http://www.wanyan.com/
+## Change Log
+2013-05-06: 设计系统首页样式，登录页面样式
