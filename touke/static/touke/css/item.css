@@ -249,34 +249,35 @@ body{
 
 /**bootstrap*/
 
-.progress.p_1{
+.progress.p_1 .bar{
 	
 }
 
-.progress.p_2{
+.progress.p_2 .bar{
 	background-color: #5eb95e;
+	
 }
-.progress.p_3{
-	background-color: #5eb95e;
+.progress.p_3 .bar{
+	background-color: #faa732;
 }
-.progress.p_4{
-	background-color: #5eb95e;
+.progress.p_4 .bar{
+	background-color: #dd514c;
 }
-.progress.p_5{
-	background-color: #5eb95e;
+.progress.p_5 .bar{
+	background-color: rgb(146, 50, 250);;
 }
-.progress.p_6{
-	background-color: #5eb95e;
+.progress.p_6 .bar{
+	background-color: rgb(250, 50, 114);
 }
-.progress.p_7{
-	background-color: #5eb95e;
+.progress.p_7 .bar{
+	background-color: rgb(73, 59, 38);
 }
-.progress.p_8{
-	background-color: #5eb95e;
+.progress.p_8 .bar{
+	background-color: rgb(206, 214, 16);
 }
-.progress.p_9{
-	background-color: #5eb95e;
+.progress.p_9 .bar{
+	background-color: rgb(245, 25, 25);
 }
-.progress.p_10{
-	background-color: #5eb95e;
+.progress.p_10 .bar{
+	background-color: rgb(129, 148, 67);
 }

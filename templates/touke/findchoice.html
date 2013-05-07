@@ -1,0 +1,129 @@
+{% load admin_static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choice-发现声音</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "touke/css/_head.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "touke/css/choice.css" %}" rel="stylesheet" media="screen">
+   
+  </head>
+  <body>
+
+   {% include '_head.html' %}
+   
+    <div class="choice-head-sub">
+        <ul class="nav nav nav-pills">
+            <li class="active">
+                <a href="#">订阅</a>
+            </li>
+            <li><a href="#">推荐</a></li>
+            <li> <a href="#">发现更多</a></li>
+        </ul>
+    </div>
+
+    <div class="choice-main">
+        <div class="choice-category">
+            <ul>
+                <li class="esp">关键词:</li>
+                <li class="keword" >
+                    <a href="#;">语录</a>
+                    <a href="#;" >2013</a>
+                    <a href="#;" class="js_click">GR</a>
+                    <a href="#;" class="js_click" >H7N9</a>
+                    <a href="#;" class="js_click" >行业</a>
+                    <a href="#;" class="js_click" >计算机</a>
+                    <a href="#;" class="js_click" >你妹</a>
+                     <a href="#;">语录</a>
+                    <a href="#;" >2013</a>
+                    <a href="#;" class="js_click">GR</a>
+                    <a href="#;" class="js_click" >H7N9</a>
+                    <a href="#;" class="js_click" >行业</a>
+                    <a href="#;" class="js_click" >计算机</a>
+                    <a href="#;" class="js_click" >你妹</a>
+                     <a href="#;">语录</a>
+                    <a href="#;" >2013</a>
+                    <a href="#;" class="js_click">GR</a>
+                    <a href="#;" class="js_click" >H7N9</a>
+                    <a href="#;" class="js_click" >行业</a>
+                    <a href="#;" class="js_click" >计算机</a>
+                    <a href="#;" class="js_click" >你妹</a>
+                </li>
+            </ul>
+        </div>
+        <div id="main" class="choice-content">
+            <ul id="choices" class="choices">
+            	{% if last_poll_list %}
+            		{% for poll in last_poll_list %}
+            		<li class="item">
+                    <!-- <img src="{% static 'touke/images/image_1.jpg' %}" width="200" height="283"> -->
+                    <h3><a href="{{ poll.id }}">{{ poll.question }}</a></h3>
+                    <p>{{ poll.story | slice:"100" }}...</p>
+                    <div class="toolbars">
+                        <img src="{% static 'touke/img/1.jpg' %}"/>
+                        <span title="阅读">{{ poll.visted }}</span>
+                        <span title="回复">26</span>
+                    </div>
+                	</li>
+                	{% endfor %}
+            	{% endif %}
+    
+            </ul>
+
+           
+        </div>
+        <div id="loader">
+                <div id="loaderCircle"></div>
+        </div>
+
+    </div>
+
+
+   
+    <div class="choice-footer"></div>
+    <script src="{% static 'bootstrap/js/jquery.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'touke/jslib/jquery.wookmark.js' %}"></script>
+    <script type="text/javascript">
+    
+        $(document).ready(new function() {
+        	
+        	
+       		   // Prepare layout options.
+               var options = {
+                 autoResize: true, // This will auto-update the layout when the browser window is resized.
+                 container: $('#main'), // Optional, used for some extra CSS styling
+                 offset: 2, // Optional, the distance between grid items
+                 itemWidth: 240 // Optional, the width of a grid item
+               };
+
+               // Get a reference to your grid items.
+               var handler = $('#choices li');
+
+               // Call the layout function.
+               handler.wookmark(options);
+
+               // Capture clicks on grid items.
+               handler.click(function(){
+                 // Randomize the height of the clicked item.
+                 var newHeight = $('img', this).height() + Math.round(Math.random()*300+30);
+                 //$(this).css('height', newHeight+'px');
+
+                 // Update the layout.
+                 handler.wookmark();
+               });
+        	
+        	 $(window).resize();
+       
+        });
+        
+       
+        
+    </script>
+    
+  </body>
+</html>
+

@@ -1,0 +1,32 @@
+{% load admin_static %}
+<div class="choice-head">
+    <div class="head-text">
+        <span class="head-logo"><a href="/index">Choice</a></span>
+        <div class="head-menu">
+            <ul id="nav-tabs" class="nav nav-tabs">
+                <li class=""><a href="/touke" >发现</a></li>
+                <li class=""><a href="#">参与</a></li>
+                 {% if user.is_authenticated %}
+                <li><a href="#tab2">我的Choice</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="head-option">
+            <input type="text" class="choice-query" Placeholder="主题，类型，用户">
+            <div class="user-info">
+           
+              
+                {% if user.is_authenticated %}
+                	<img src="{% static 'touke/img/1.jpg' %}" class="photo"/>
+                	<span class="name">{{ user.username }}</span>
+                	<i class="icon-chevron-down"></i>
+                {% else %}
+                	<span class="name">游客|<a href="/auth">登录</a></span>
+                {% endif %}
+                
+            
+            </div>
+        </div>
+    </div>
+    
+</div>
