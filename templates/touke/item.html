@@ -35,6 +35,11 @@
             </div>
         </div>
         <div id="Choice-title">{{ poll.question }}</div>
+        <div class="jiathis_style">
+            <a class="jiathis_like_tsinat" data="width=320"></a>
+        </div>  <!-- JiaThis Button BEGIN -->
+        <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=1368010204582499" charset="utf-8"></script>
+        <!-- JiaThis Button END -->
     </div>
     <div id="main">
         <div class="choice ">
@@ -62,14 +67,17 @@
         <div class="comment-pane">
             <div class="choice-story">
                 <h3>Choice Story</h3>
+                
+
                 {% if poll.story %}
                 	<p>{{ poll.story }}</p>
                 {% else %}
                 	<p>暂无投票故事</p>
                 {% endif %}
+               
                 
             </div>
-        
+
 
             <div id="choice-comment" class="choice-comment">
                 <h3>全部评论{{ comment.len }}条</h3>
