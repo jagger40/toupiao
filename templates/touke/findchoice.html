@@ -63,7 +63,8 @@
                     <h3><a href="{{ poll.id }}">{{ poll.question }}</a></h3>
                     <p>{{ poll.story | slice:"100" }}...</p>
                     <div class="toolbars">
-                        <img src="{% static 'touke/img/1.jpg' %}"/>
+                    	
+                        <img src="/media/{{ poll.member.avatar }}" title="由{{ poll.member.username }}发布"/>
                         <span title="阅读">{{ poll.visted }}</span>
                         <span title="回复">26</span>
                     </div>

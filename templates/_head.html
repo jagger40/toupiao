@@ -6,20 +6,21 @@
             <ul id="nav-tabs" class="nav nav-tabs">
                 <li class=""><a href="/touke" >发现</a></li>
                 <li class=""><a href="#">参与</a></li>
-                 {% if user.is_authenticated %}
-                <li><a href="#tab2">我的Choice</a></li>
-                {% endif %}
+               
+                 {% if request.session.user %}
+                	<li><a href="#tab2">我的Choice</a></li>
+                 {% endif %}
             </ul>
         </div>
         <div class="head-option">
             <input type="text" class="choice-query" Placeholder="主题，类型，用户">
             <div class="user-info">
-           
-              
-                {% if user.is_authenticated %}
-                	<img src="{% static 'touke/img/1.jpg' %}" class="photo"/>
-                	<span class="name">{{ user.username }}</span>
-                	<i class="icon-chevron-down"></i>
+           		
+                {% if request.session.user %}
+                	<img src="/media/{{ request.session.user.avatar }}" class="photo"/>
+                	<span class="name">{{ request.session.user.username }}</span>
+                	<i id="icon-user-option-down" class="icon-chevron-down"></i>
+                	<a href="/auth/logout/">退出</a>
                 {% else %}
                 	<span class="name">游客|<a href="/auth">登录</a></span>
                 {% endif %}
@@ -27,6 +28,7 @@
             
             </div>
         </div>
+       
     </div>
     
 </div>

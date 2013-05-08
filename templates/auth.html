@@ -19,9 +19,12 @@
     </div>
     <div class="auth-main">
         <div class="main-text">
+        	<form method="POST" action="/auth/login/">
+        		{% csrf_token %}
                 <input type="text" name="email" Placeholder="电子邮箱地址"/>
-                <input type="password" name="email" Placeholder="登陆密码"/>
-                <button class="btn btn-large">登陆</button>
+                <input type="password" name="password" Placeholder="登陆密码"/>
+                <button type="submit" class="btn btn-large">登陆</button>
+            </form>
                 <hr/>
                 <!-- <p class="auth-regist"><a href="#">注册成为Choice用户</a>  | -->  <a href="../">主页</a></p>
         </div>

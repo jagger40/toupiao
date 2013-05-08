@@ -191,9 +191,10 @@ body{
 }
 
 .choice-comment .choice-comment-publish textarea{
-
+	
 	margin: 0;
-	width: 80%;
+	width: 87%;
+	height:80px;
 	border: 1px solid #ddd;
 	resize: vertical;
 	padding-top: 10px;

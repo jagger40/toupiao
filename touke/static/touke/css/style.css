@@ -114,7 +114,8 @@ body{
 	right: 30px;
 	background: url(../img/homepage_login.png) no-repeat;
 	padding: 0 40px;
-
+	text-align: center;
+	color:#fff;
 }
 
 .login a {

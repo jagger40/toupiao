@@ -1,34 +1,35 @@
 # -*- coding: utf-8 -*-  
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect,HttpResponse
 from django.http.response import Http404
-from django.contrib import auth
+from django.template import RequestContext
+from choice.models import Member 
 
 def index(request):
-    return render_to_response("index.html")
+   
+    return render_to_response("index.html",context_instance=RequestContext(request))
 
 def auth(request):
-    return render_to_response("auth.html")
+    return render_to_response("auth.html",context_instance=RequestContext(request))
 
 def login(request):
-    if request.method =='POST':
-        username = request.POST.get('username','')
-        password = request.POST.get('password','')
-        user = auth.authenticate(username = username,password=password)
-        if user is not None and user.is_active:
-            
-            auth.login(request, user)
-            #Redirect to success page
+    if request.method!='POST':
+        raise Http404('Only POST are allowed')
+    try:
+        m = Member.objects.get(email=request.POST['email'])
+        if m.password == request.POST['password']:
+            request.session['user'] = m
             return HttpResponseRedirect('/touke')
-        else:
-            return HttpResponseRedirect('/auth')
+    except Member.DoesNotExist:
+        return HttpResponse("your username and password didn't macth")
     else:
-        #抛出404异常
-        raise Http404
+        return HttpResponse("error")
     
 def logout(request):
-    auth.logout(request)
-    # Redirect to a success page.
-    return HttpResponseRedirect("/auth")
+   
+    try:
+        del request.session['user']
+    except KeyError:
+        pass
+    return HttpResponseRedirect('/auth')
     

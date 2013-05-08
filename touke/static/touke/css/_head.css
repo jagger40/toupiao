@@ -45,10 +45,9 @@
 
 .head-text .head-option{
 	
-	
+	margin-right: 20px;
 	float: right;
-	width: 348px;
-	margin-right: 10px;
+	font-family: "Microsoft Yahei";
 }
 
 .head-text .head-option .choice-query{
@@ -73,6 +72,28 @@
 
 }
 
+#user-option{
+	
+	height: 200px;
+	width:200px;
+	background:#000;
+	position:fixed;
+	top:40px;
+	right:0;
+	
+	
+}
+
+.user-info{
+	cursor: pointer;
+}
+
+.user-info:hover #user-option{
+	
+	background-color:#eee;
+	display:none;
+}
+
 .user-info .photo{
 	height:30px;
 	width:30px;
@@ -92,3 +113,4 @@
 .user-info .name{
 	margin-left:4px;
 }
+

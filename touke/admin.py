@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-  
 from django.contrib import admin
-from touke.models import Choice,Poll,Comment,UserProfile
+from touke.models import Choice,Poll,Comment
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
@@ -11,7 +12,6 @@ class CommentInline(admin.TabularInline):
 
 class PollAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline,CommentInline]
-
 
 # admin.site.register(UserProfile)
 # admin.site.register(Choice)

@@ -14,8 +14,13 @@
     <div class="header-index">
       <div class="header-center">
         <div class="login">
-            <a href="auth.html">登陆</a>
-           <!--  <a href="#">注册</a> -->
+        {% if not request.session.user %}
+            <a href="/auth">登陆</a>
+            <a href="#">注册</a> 
+        {% else %}
+        	<span>{{ request.session.user.username }}</span>
+        {% endif %}
+        
         </div>
         <a href="" class="logo">Choice</a>
         <a href="" class="circle mini" style="left:560px;top:100px">求知</a>

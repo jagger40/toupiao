@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
 encoding//choice/views.py=utf-8
+encoding//touke/admin.py=utf-8
 encoding//touke/models.py=utf-8
+encoding//touke/urls.py=utf-8
+encoding//touke/views.py=utf-8
