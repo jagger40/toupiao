@@ -57,7 +57,8 @@ def vote(request,poll_id):
 def home(request,member_id):
     
     m = get_object_or_404(Member,pk=member_id)
-    return render_to_response("touke/home.html",{'member':m}, context_instance=RequestContext(request))
+    polls = m.poll_set.all()
+    return render_to_response("touke/home.html",{'member':m,'polls':polls}, context_instance=RequestContext(request))
 
     
     

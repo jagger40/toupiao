@@ -64,7 +64,7 @@
                     <p>{{ poll.story | slice:"100" }}...</p>
                     <div class="toolbars">
                     	
-                        <img src="/media/{{ poll.member.avatar }}" title="由{{ poll.member.username }}发布"/>
+                        <a href="/touke/{{ poll.member.id }}/home"><img src="/media/{{ poll.member.avatar }}" title="由{{ poll.member.username }}发布"/></a>
                         <span title="阅读">{{ poll.visted }}</span>
                         <span title="回复">26</span>
                     </div>
