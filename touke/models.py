@@ -2,8 +2,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from choice.models import Member
-
-
     
 class Poll(models.Model):
     member = models.ForeignKey(Member)
@@ -20,6 +18,7 @@ class Choice(models.Model):
     poll = models.ForeignKey(Poll)
     choice = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
+    nm_votes = models.IntegerField(default=0)
     def __unicode__(self):
         return self.choice
 

@@ -9,30 +9,57 @@
     <!-- Bootstrap -->
     <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
     <link href="{% static "touke/css/auth.css" %}" rel="stylesheet" media="screen">
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=466508528" type="text/javascript" charset="utf-8"></script>
+    
   </head>
   <body>
     
-    <div class="auth-head">
-        <h2>Choice登陆</h2>
-       <!--  <wb:login-button type="3,5" onlogin="login" onlogout="logout">登录按钮</wb:login-button> -->
+    <div id="login-panel">
+	    <div class="auth-head">
+	        <h2>Choice登陆</h2>
+	       <!--  <wb:login-button type="3,5" onlogin="login" onlogout="logout">登录按钮</wb:login-button> -->
+	    </div>
+	    <div class="auth-main">
+	        <div class="main-text">
+	        	<form method="POST" action="/auth/login/">
+	        		{% csrf_token %}
+	                <input type="text" name="email" Placeholder="电子邮箱地址"/>
+	                <input type="password" name="password" Placeholder="登陆密码"/>
+	                <button type="submit" class="btn btn-large">登陆</button>
+	            </form>
+	            <hr/>
+	            <p class="auth-regist"><a href="#regist">注册成为Choice用户</a>  | <a href="../">主页</a></p>
+	        </div>
+	    </div>
     </div>
-    <div class="auth-main">
-        <div class="main-text">
-        	<form method="POST" action="/auth/login/">
-        		{% csrf_token %}
-                <input type="text" name="email" Placeholder="电子邮箱地址"/>
-                <input type="password" name="password" Placeholder="登陆密码"/>
-                <button type="submit" class="btn btn-large">登陆</button>
-            </form>
-                <hr/>
-                <!-- <p class="auth-regist"><a href="#">注册成为Choice用户</a>  | -->  <a href="../">主页</a></p>
-        </div>
+    <div id="regist-panel" style="display:none">
+    	<div class="auth-head">
+	        <h2>加入Choicer</h2>
+	       <!--  <wb:login-button type="3,5" onlogin="login" onlogout="logout">登录按钮</wb:login-button> -->
+	    </div>
+	    <div class="auth-main">
+	        <div class="regist-text">
+	        	<form method="POST" action="/auth/regist/">
+	        		{% csrf_token %}
+	        		<input type="text" name="username" Placeholder="昵称"/>
+	                <br/>
+	                <input type="text" name="email" Placeholder="电子邮箱地址"/>
+	                <br/>
+	                <input type="password" name="password" Placeholder="登陆密码"/>
+	                <br/>
+	                <input type="password" name="repassword" Placeholder="确认密码"/>
+	                <br/>
+	                <button type="submit" class="btn btn-large">成为Choicer</button>
+	            </form>
+	            <hr/>
+	            <p class="auth-regist"><a href="#login">已经拥有账户，直接登录</a>  | <a href="../">主页</a></p>
+	        </div>
+	    </div>
     </div>
-   <!--  <div class="auth-footer"><a href="#" target="_blank">关于Choice</a>|<a href="#" target="_blank">联系Choice</a><wb:login-button type="3,5" onlogin="login" onlogout="logout">登录按钮</wb:login-button></div> -->
-
+    <!-- <div class="auth-footer"><a href="#" target="_blank">关于Choice</a>|<a href="#" target="_blank">联系Choice</a><wb:login-button type="3,5" onlogin="login" onlogout="logout">登录按钮</wb:login-button></div>
+ -->
     <script src="{% static "bootstrap/js/jquery.js" %}"></script>
     <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "touke/js/auth.js" %}"></script>
   </body>
 </html>
 

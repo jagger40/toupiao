@@ -31,5 +31,6 @@ def logout(request):
         del request.session['user']
     except KeyError:
         pass
-    return HttpResponseRedirect('/auth')
+    return HttpResponseRedirect('/auth/')
+
     

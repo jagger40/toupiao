@@ -2,31 +2,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-  
     <title>{{ choice.choice }}Choice-用选择决定发声</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'touke/css/item.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'touke/css/home.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'touke/css/_head.css' %}" rel="stylesheet" media="screen">
   </head>
   <body>
   	
-  	{% include '_head.html' %}
-
     <div id="title-bar">
         <div id="publisher-info" class="hidden-small-phone">
             <a href="#">
             <div style="float:left;padding:5px;margin-top:-5px;border-radius:50%;box-shadow: inset 0 2px 10px rgba(0,0,0,0.28);">
 
-                <a href="/touke/{{ poll.member.id }}/home"><img id="publisher-profile-image" src="/media/{{ poll.member.avatar }}"></a>
+                <img id="publisher-profile-image" src="/media/{{ member.avatar }}">
 
             </div>
             </a>
             <div id="publisher-section">
                 <span id="publisher-name-link">
-                    	由<a href="#">{{ poll.member.username }}</a>发布
+                    	由<a href="#">{{ member.username }}</a>发布
                 </span>
                 <br/>
                 <span id="publisher-choice-link">
@@ -116,11 +113,8 @@
         <div class="clearfix"></div>
     </div>
     
-
     <script src="{% static 'bootstrap/js/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'touke/jslib/jquery.form.js' %}"></script>
-    <script src="{% static 'touke/js/item.js' %}"></script>
   
   </body>
 </html>

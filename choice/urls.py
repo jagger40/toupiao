@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-  
 from django.conf.urls import patterns, include, url
 from choice.views import index,auth,login,logout
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -23,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^auth/$',auth),
     url(r'^auth/login/$',login),
     url(r'^auth/logout/$',logout),
+    url(r'^auth/regist/$',auth),
     url(r'^admin/',include(admin.site.urls)),
     url(r'^touke/',include('touke.urls'))
     

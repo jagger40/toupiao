@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-  
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from touke.models import Poll,Choice,Comment
+from touke.models import Poll,Choice,Comment,Member
 from django.http import Http404,HttpResponse,HttpResponseRedirect
 from datetime import datetime 
 # Create your views here.
@@ -53,6 +53,11 @@ def vote(request,poll_id):
         response.set_cookie("voted_"+str(p.id),"true")
         
         return response; 
+    
+def home(request,member_id):
+    
+    m = get_object_or_404(Member,pk=member_id)
+    return render_to_response("touke/home.html",{'member':m}, context_instance=RequestContext(request))
 
     
     
