@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-  
 from django.db import models
 import hashlib
 
-class Member(models.Model):
+# Create your models here.
+class Account(models.Model):
     
     email = models.EmailField()
     username = models.CharField(max_length=200)

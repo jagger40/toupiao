@@ -1,0 +1,48 @@
+{% load admin_static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choice-用选择决定发声</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Bootstrap -->
+    <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "touke/css/auth.css" %}" rel="stylesheet" media="screen">
+    
+  </head>
+  <body>
+    
+    <div id="login-panel">
+	    <div class="regist-head">
+	        <h2>注册成为Choice用户</h2>
+	     
+	    </div>
+	    <div class="auth-main">
+	        <div class="regist-text">
+	        
+	        	<form method="POST" action="/auth/singup/">
+	        		{% csrf_token %}
+	        		<label>用户名</label>
+	        		{{ form.username }}
+	        		<label>邮箱地址</label>
+	               {{ form.email }}
+	               <label>密码</label>
+	               {{ form.password1 }}
+	               <label>确认密码</label>
+	                {{ form.password2 }}
+	                <button type="submit" class="btn btn-large">注册</button>
+	            </form>
+	            <p style="color:red">{{ form.email.errors }}   {{ form.password.errors }}</p>
+	           
+	            <hr/>
+	            <p class="auth-regist"><a href="/auth/login">已经拥有帐号</a>  | <a href="../">主页</a></p>
+	        </div>
+	    </div>
+    </div>
+
+    <script src="{% static "bootstrap/js/jquery.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+  </body>
+</html>
+

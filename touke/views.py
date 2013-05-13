@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-  
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from touke.models import Poll,Choice,Comment,Member
+from touke.models import Poll,Choice,Comment,Account
 from django.http import Http404,HttpResponse,HttpResponseRedirect
 from datetime import datetime 
+
+def index(request):
+    return render_to_response("index.html",context_instance=RequestContext(request))
+
 # Create your views here.
 def findChoice(request):
    
@@ -56,7 +60,7 @@ def vote(request,poll_id):
     
 def home(request,member_id):
     
-    m = get_object_or_404(Member,pk=member_id)
+    m = get_object_or_404(Account,pk=member_id)
     polls = m.poll_set.all()
     return render_to_response("touke/home.html",{'member':m,'polls':polls}, context_instance=RequestContext(request))
 

@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'choice',
     'touke',
+    'auth',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

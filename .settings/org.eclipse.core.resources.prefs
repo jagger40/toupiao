@@ -1,11 +1,11 @@
 eclipse.preferences.version=1
+encoding//auth/admin.py=utf-8
+encoding//auth/forms.py=utf-8
+encoding//auth/urls.py=utf-8
+encoding//auth/views.py=utf-8
 encoding//choice/admin.py=utf-8
-encoding//choice/auth.py=utf-8
-encoding//choice/forms.py=utf-8
-encoding//choice/models.py=utf-8
 encoding//choice/settings.py=utf-8
 encoding//choice/urls.py=utf-8
-encoding//choice/views.py=utf-8
 encoding//choice/wsgi.py=utf-8
 encoding//touke/admin.py=utf-8
 encoding//touke/models.py=utf-8

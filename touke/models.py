@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-  
 from django.db import models
 from django.contrib.auth.models import User
-from choice.models import Member
+from auth.models import Account
     
 class Poll(models.Model):
-    member = models.ForeignKey(Member)
+    account = models.ForeignKey(Account)
     question = models.CharField(max_length=200)
     story = models.TextField(max_length=3000)
     keyword = models.CharField(max_length=20)
@@ -25,7 +25,7 @@ class Choice(models.Model):
 
 class Comment(models.Model):
     poll = models.ForeignKey(Poll)
-    member = models.ForeignKey(Member)
+    account = models.ForeignKey(Account)
     pub_date = models.DateTimeField(auto_now_add=True)
     text = models.TextField(max_length=200)
     def __unicode__(self):

@@ -1,0 +1,42 @@
+{% load admin_static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choice-用选择决定发声</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <html xmlns:wb="http://open.weibo.com/wb">
+    <!-- Bootstrap -->
+    <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
+    <link href="{% static "touke/css/auth.css" %}" rel="stylesheet" media="screen">
+    
+  </head>
+  <body>
+    
+    <div id="login-panel">
+	    <div class="auth-head">
+	        <h2>Choice登陆</h2>
+	       <!--  <wb:login-button type="3,5" onlogin="login" onlogout="logout">登录按钮</wb:login-button> -->
+	    </div>
+	    <div class="auth-main">
+	        <div class="regist-text">
+	        
+	        	<form method="POST" action="/auth/login/">
+	        		{% csrf_token %}
+	               {{ form.email }}
+	               {{ form.password }}
+	                <button type="submit" class="btn btn-large">登陆</button>
+	            </form>
+	            <p style="color:red">{{ form.email.errors }}   {{ form.password.errors }}</p>
+	           
+	            <hr/>
+	            <p class="auth-regist"><a href="/auth/singup">注册成为Choice用户</a>  | <a href="../">主页</a></p>
+	        </div>
+	    </div>
+    </div>
+ 
+    <script src="{% static "bootstrap/js/jquery.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+  </body>
+</html>
+
