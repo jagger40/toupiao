@@ -73,14 +73,25 @@ def create(request):
     
     if request.method == 'POST':
         
+        tag = request.POST.get('tag')
+        
         form = CreatePollForm(request.POST)
         if form.is_valid():
             
-            data = form.cleaned_data
-            poll = Poll(account= request.session['account'],question=data['question'],story=data['story'],keyword=data['keyword'],visted=0,pub_date= datetime.now())
-            poll.save()
-           
-            return render_to_response("touke/create.html", {'form':form},context_instance=RequestContext(request))
+            if tag =='save':
+            
+                data = form.cleaned_data
+                poll = Poll(account= request.session['account'],question=data['question'],story=data['story'],keyword=data['keyword'],visted=0,pub_date= datetime.now())
+                poll.save()
+                
+                choices = request.POST.getlist('choice')
+                
+                for c in choices:
+                    choice = Choice(poll=poll,choice=c,votes=0,nm_votes=0)
+                    choice.save()
+            else:
+                pass
+            return render_to_response("touke/create.html", {'form':form,'saved':True},context_instance=RequestContext(request))
            
     else:
         
