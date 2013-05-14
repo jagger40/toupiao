@@ -50,8 +50,14 @@
 					</div>
 					<input type="button" class="btn create-field-add"  id="add-field" value="添加选项">
 					<hr/>
-					<button class="btn" type="submit">保存</button><button class="btn">预览</button>
-					
+				
+					{% if  saved %}
+							<input type="hidden" name="tag" value="update"/>
+						<button class="btn" type="button">修改</button>
+					{% else %}
+							<input type="hidden" name="tag" value="save"/>
+						<button class="btn" type="submit">保存</button><button class="btn">预览</button>
+					{% endif %}
 					</div>
 				</form>
 				<div id="tag-content">

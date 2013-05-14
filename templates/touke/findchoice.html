@@ -61,7 +61,7 @@
             		<li class="item">
                     <!-- <img src="{% static 'touke/images/image_1.jpg' %}" width="200" height="283"> -->
                     <h3><a href="{{ poll.id }}">{{ poll.question }}</a></h3>
-                    <p>{{ poll.story | slice:"100" }}...</p>
+                    <p>{{ poll.story | slice:"200" }}...</p>
                     <div class="toolbars">
                     	
                         <a href="/touke/{{ poll.account.id }}/home"><img src="/media/{{ poll.account.avatar }}" title="由{{ poll.account.username }}发布"/></a>
