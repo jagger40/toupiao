@@ -23,13 +23,13 @@
 	        
 	        	<form method="POST" action="/auth/singup/">
 	        		{% csrf_token %}
-	        		<label>用户名</label>
+	        		
 	        		{{ form.username }}
-	        		<label>邮箱地址</label>
+	        		
 	               {{ form.email }}
-	               <label>密码</label>
+	              
 	               {{ form.password1 }}
-	               <label>确认密码</label>
+	               
 	                {{ form.password2 }}
 	                <button type="submit" class="btn btn-large">注册</button>
 	            </form>

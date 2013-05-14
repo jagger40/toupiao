@@ -4,10 +4,9 @@
         <span class="head-logo"><a href="/index">Choice</a></span>
         <div class="head-menu">
             <ul id="nav-tabs" class="nav nav-tabs">
-                <li class=""><a href="/touke" >发现</a></li>
+                <li class=""><a href="/touke" >广场</a></li>
                 <li class=""><a href="#">参与</a></li>
-               
-                 {% if request.session.user %}
+                 {% if request.session.account %}
                 	<li><a href="#tab2">我的Choice</a></li>
                  {% endif %}
             </ul>
@@ -16,9 +15,9 @@
             <input type="text" class="choice-query" Placeholder="主题，类型，用户">
             <div class="user-info">
            		
-                {% if request.session.user %}
-                	<img src="/media/{{ request.session.user.avatar }}" class="photo"/>
-                	<span class="name">{{ request.session.user.username }}</span>
+                {% if request.session.account %}
+                	<a href="/touke/{{ request.session.account.id }}/home/"><img src="/media/{{ request.session.account.avatar }}" class="photo"/></a>
+                	<span class="name">{{ request.session.account.username }}</span>
                 	<i id="icon-user-option-down" class="icon-chevron-down"></i>
                 	<a href="/auth/logout/">退出</a>
                 {% else %}

@@ -4,11 +4,11 @@ import hashlib
 # Create your models here.
 class Account(models.Model):
     
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     username = models.CharField(max_length=200)
     password = models.CharField(max_length=20)
     is_active = models.BooleanField()
-    avatar = models.ImageField(upload_to='avatar',null=True)
+    avatar = models.ImageField(upload_to='avatar',null=True,default='avatar/default.jpg ')
     
     def is_authenticated(self):  
         return True  

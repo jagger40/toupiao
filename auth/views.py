@@ -31,14 +31,24 @@ def singup(request):
         if form.is_valid():
             
             data = form.cleaned_data
-            account = Account(email=data['email'],username=data['username'],password=data['password1'],is_active=True,avatar=None)
+            account = Account(email=data['email'],username=data['username'],password=data['password1'],is_active=True,avatar='avatar/default.jpg')
             account.save()
+            request.session['account'] = account
+            return HttpResponseRedirect('/touke/'+str(account.id)+'/home')
     
     else:
         
         form = RegistForm()
         
     return render_to_response('auth/singup.html',{'form':form},context_instance=RequestContext(request))
+
+def logout(request):
+    try:
+        del request.session['account']
+    except KeyError:
+        pass
+
+    return HttpResponseRedirect('/auth/')
         
         
     

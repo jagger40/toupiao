@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'touke/css/home.css' %}" rel="stylesheet" media="screen">
+    
     <link href="{% static 'touke/css/_head.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'touke/css/home.css' %}" rel="stylesheet" media="screen">
   </head>
   <body>	
 	<div class="page-container">
 		<div class="backing">
 			<div class="profile-prothole">
 				<a id="large-user-profile-image" 
-					style="background-image: url(/media/{{ account.avatar }})">
+					style="background-image: url(/media/{{ request.session.account.avatar }})">
 				</a>
 			</div>
 		</div>
@@ -24,24 +25,35 @@
 			<div id="tag-wrapper">
 				<div id="tag-title-bar">
 					<div>
-					<span id="story-title">{{ account.username }}</span>
-					 <span class="profile-user-name">的Choice</span> 
+					<span id="story-title">创建</span>
+					 <span class="profile-user-name">Choice</span> 
 					&nbsp;
 					</div>
 				</div>
 				<div id="tag-description-bar"></div>
-				<div id="choice-content">
+				<form action="." method="post">
 					
-					{% for poll in polls %}
-						<div class="choice-item">
-							<h2><a href="/touke/{{ poll.id }}">{{ poll.question }}</a></h2>
-							<p>{{ poll.story }}</p>
-						</div>
-					{% empty %}
-						<h2>该用户未发表任何选择</h2>
-					{% endfor %}
+					{% csrf_token %}
+					
+					<div id="create-content">
+					<h3>故事</h3>
+					{{ form.question }}
 				
-				</div>
+					{{ form.story }}
+					
+				   {{ form.keyword }}
+					<hr/>
+					<h3>选择</h3>
+					 
+					<div id="choice-fileds">
+						<input type="text" placeholder="选择1"  name="choice" class="create-field-choice"/>
+					</div>
+					<input type="button" class="btn create-field-add"  id="add-field" value="添加选项">
+					<hr/>
+					<button class="btn" type="submit">保存</button><button class="btn">预览</button>
+					
+					</div>
+				</form>
 				<div id="tag-content">
 				  {% if request.session.account == account %}
 					<div class="tag-group">
@@ -75,6 +87,7 @@
   
     <script src="{% static 'bootstrap/js/jquery.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'touke/js/create-choice.js' %}"></script>
   
   </body>
 </html>

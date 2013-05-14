@@ -72,6 +72,45 @@ body {
 	margin-bottom: 150px;
 }
 
+#create-content{
+	
+		width: 600px;
+		float: left;
+		padding-top: 10px;
+		margin-bottom: 150px;
+	
+}
+
+.create-field-title{
+	
+	height: 50px;
+	font-size: 20px;
+	padding: 10px;
+	width: 97.5%;
+	font-weight: bold;
+	
+}
+
+.create-field-story{
+	
+	width: 97.5%;
+	height: 100px;
+	
+}
+
+.create-field-add{
+	
+	display: block;
+	width: 100%!important;
+	
+}
+
+.create-field-choice{
+	
+		width: 97.5%;
+	
+}
+
 .choice-item{
 	
 	background-color: #fff;

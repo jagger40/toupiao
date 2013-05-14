@@ -11,7 +11,7 @@ class LoginForm(forms.Form):
                              label='邮箱地址',
                              widget=forms.TextInput(attrs={'placeholder':'电子邮箱地址'})
     )
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'登录密码'}))
 
     def clean_password(self): 
         email = self.cleaned_data['email']
@@ -29,19 +29,19 @@ class RegistForm(forms.Form):
     '''
         注册验证表单
     '''
-    username = forms.CharField(label=u'用户名',max_length=30)
-    email = forms.EmailField(u'邮箱')
+    username = forms.CharField(label=u'用户名',max_length=30,    widget=forms.TextInput(attrs={'placeholder':'昵称'}))
+    email = forms.EmailField(label=u'邮箱',widget=forms.TextInput(attrs={'placeholder':' 登录邮箱'}))
     
     password1 = forms.CharField(
                                label=u'密码',
-                               widget=forms.PasswordInput()
+                               widget=forms.PasswordInput(attrs={'placeholder':'登录密码'})
     )
     
     password2 =  forms.CharField(
                                label=u'确认密码',
-                               widget=forms.PasswordInput()
+                               widget=forms.PasswordInput(attrs={'placeholder':'确认密码'})
     )
-    
+             
     def clean_password2(self):
         ''' 
             检查两次密码是否一致

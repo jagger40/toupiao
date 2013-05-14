@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from touke.models import Poll,Choice,Comment,Account
 from django.http import Http404,HttpResponse,HttpResponseRedirect
+from .forms import CreatePollForm
 from datetime import datetime 
 
 def index(request):
@@ -19,6 +20,10 @@ def findChoice(request):
 
 def PollDetail(request,poll_id):
     
+    '''
+        GET choice 详情页面
+        POST 提交评论
+    '''
     p = get_object_or_404(Poll,pk=poll_id)
     if request.method == 'GET':
         
@@ -36,14 +41,14 @@ def PollDetail(request,poll_id):
             )
     else:
         
-        m=  request.session['user']
+        account=  request.session['account']
         text = request.POST['comment'];
-        comment = Comment(text=text,poll=p,member=m)
+        comment = Comment(text=text,poll=p,account=account)
         comment.save();
         return HttpResponseRedirect('/touke/'+poll_id+'/#choice-comment')
 
 def vote(request,poll_id):
-    
+    '''  投票 ''' 
     p = get_object_or_404(Poll,pk=poll_id)
     try:
         select_choice = p.choice_set.get(pk=request.POST['choice'])
@@ -60,9 +65,27 @@ def vote(request,poll_id):
     
 def home(request,member_id):
     
-    m = get_object_or_404(Account,pk=member_id)
-    polls = m.poll_set.all()
-    return render_to_response("touke/home.html",{'member':m,'polls':polls}, context_instance=RequestContext(request))
+    account = get_object_or_404(Account,pk=member_id)
+    polls = account.poll_set.all()
+    return render_to_response("touke/home.html",{'account':account,'polls':polls}, context_instance=RequestContext(request))
 
+def create(request):
+    
+    if request.method == 'POST':
+        
+        form = CreatePollForm(request.POST)
+        if form.is_valid():
+            
+            data = form.cleaned_data
+            poll = Poll(account= request.session['account'],question=data['question'],story=data['story'],keyword=data['keyword'],visted=0,pub_date= datetime.now())
+            poll.save()
+           
+            return render_to_response("touke/create.html", {'form':form},context_instance=RequestContext(request))
+           
+    else:
+        
+        form = CreatePollForm()
+        
+    return render_to_response("touke/create.html", {'form':form},context_instance=RequestContext(request))
     
     
