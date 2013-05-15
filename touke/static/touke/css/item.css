@@ -261,6 +261,10 @@ body{
 	
 }
 
+.progress-striped .bar_um{
+	background-color: :#000!important;
+}
+
 .progress.p_2 .bar{
 	background-color: #5eb95e;
 	

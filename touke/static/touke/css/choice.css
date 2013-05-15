@@ -1,6 +1,6 @@
 body{
 
-	background-color: #eee;
+	background-color: rgba(246,244,245,.84);
 	margin-top:40px;
 	min-width: 900px;
 	overflow-x: hidden;
@@ -43,7 +43,7 @@ ul,li{
 }
 
 .choice-category{
-	margin-left: 2%;
+	
 	border: #ccc solid 1px;
 	background-color: #fff;
 	min-height: 40px;
@@ -98,11 +98,12 @@ ul,li{
 }
 
 .choice-content .choices .item{
-
-	padding: 10px;
+	padding:10px;
+	padding-bottom:5px;
 	list-style: none;
 	background: #fff;
 	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	border-radius: 2px;
 
 }
 
@@ -154,12 +155,13 @@ ul,li{
 
 	width: 100%;
 	opacity: 0.6;
-	background-color: #000;
+	background-color:  rgb(35, 39, 41);
 	height: 40px;
 	position: absolute;
 	bottom: 0px;
 	left:0px;
 	right:0px;
+	border-radius: 0px 0px 2px 2px;
 
 }
 

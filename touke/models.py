@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-  
 from django.db import models
-from django.contrib.auth.models import User
 from auth.models import Account
     
 class Poll(models.Model):
@@ -22,7 +21,6 @@ class Choice(models.Model):
     def __unicode__(self):
         return self.choice
 
-
 class Comment(models.Model):
     poll = models.ForeignKey(Poll)
     account = models.ForeignKey(Account)
@@ -30,3 +28,8 @@ class Comment(models.Model):
     text = models.TextField(max_length=200)
     def __unicode__(self):
         return self.text
+
+class Apr(models.Model):
+    
+    account = models.ForeignKey(Account)
+    poll = models.ForeignKey(Poll)

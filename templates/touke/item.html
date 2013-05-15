@@ -1,8 +1,7 @@
 {% load admin_static %}
 <!DOCTYPE html>
 <html>
-  <head>
-  
+   <head>
     <title>{{ choice.choice }}Choice-用选择决定发声</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,19 +18,21 @@
         <div id="publisher-info" class="hidden-small-phone">
             <a href="#">
             <div style="float:left;padding:5px;margin-top:-5px;border-radius:50%;box-shadow: inset 0 2px 10px rgba(0,0,0,0.28);">
-
                 <a href="/touke/{{ poll.account.id }}/home"><img id="publisher-profile-image" src="/media/{{ poll.account.avatar }}"></a>
-
             </div>
             </a>
             <div id="publisher-section">
                 <span id="publisher-name-link">
                     	由<a href="#">{{ poll.account.username }}</a>发布
+                    	{% if poll.account == request.session.account %}
+	                   		<a href="#">修改</a>
+	                   	{% endif %}
                 </span>
                 <br/>
                 <span id="publisher-choice-link">
                 <a href="#"><b>6</b> Choice</a>
                 </span>
+              
             </div>
         </div>
         <div id="Choice-title">{{ poll.question }}</div>
@@ -52,11 +53,12 @@
        				{% csrf_token %}
        			   <div class="choice-title">{{ choice.choice }}</div>
 		            <div class="progress p_{{ forloop.counter }} progress-striped active">
-		              <div id="bar_{{ choice.id }}" class="bar" style="width: {{ choice.votes }}%"></div>
+		              <div title="登录用户票数{{ choice.votes }}"  id="bar_{{ choice.id }}" class="bar" style="width: {{ choice.votes }}%"></div>
+		             <!--  <div  title="匿名用户票数{{ choice.nm_votes }}"   class="bar bar_um"  style="width: {{ choice.nm_votes }}%"></div> -->
 		            </div>
 		            <span class="choice-result" id="vote_{{ choice.id }}">{{ choice.votes }}票</span>&nbsp;&nbsp;
 		            <input type="hidden" name="choice" value="{{ choice.id }}"/>
-		            {% if not voted %}
+		            {% if not voted and request.session.account%}
 		            	<button class="btn_vote btn" type="submit">投票</button>
 		            {% endif %}
        			</form>

@@ -35,7 +35,7 @@
 					{% for poll in polls %}
 						<div class="choice-item">
 							<h2><a href="/touke/{{ poll.id }}">{{ poll.question }}</a></h2>
-							<p>{{ poll.story }}</p>
+							<p>{{ poll.story | slice:"100" }}</p>
 						</div>
 					{% empty %}
 						<h2>该用户未发表任何选择</h2>
